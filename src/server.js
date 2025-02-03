@@ -3,6 +3,8 @@ import cors from 'cors'
 import cookieParser from 'cookie-parser'
 import {PORT, FRONT_API_URL} from './config/variables.js'
 import rateLimit from 'express-rate-limit'
+import AuthRoutes from './routes/AuthRoutes.js'
+import { mailer } from './services/emilService.js'
 
 const app = express();
 
@@ -23,6 +25,14 @@ const apiLimiter = rateLimit({
     standardHeaders: true,
     legacyHeaders: false,
 });
+
+app.get('/', (req, res) => {
+    res.send('Welcome to the API');
+});
+
+app.use('/auth', AuthRoutes)
+
+app.post('/api/mailer', mailer)
 
 app.listen(PORT, () => {
     console.log(`Inicie pe en puerto: ${PORT}`)
