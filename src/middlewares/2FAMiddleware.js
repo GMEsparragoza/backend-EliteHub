@@ -30,7 +30,7 @@ export const verifyUser2FA = (req, res, user) => {
                             <h1 style="color: #F8FAFC;">Two-Step Verification Code</h1>
                             <p style="font-size: 16px; color: #94A3B8;">Hello,</p>
                             <p style="font-size: 16px; color: #94A3B8;">A login attempt has been detected on your account. For security reasons, we have enabled two-step verification (2FA). Please enter the following code to continue with your login:</p>
-                            <div style="margin: 20px 0; padding: 15px; background-color: #697b94; border-radius: 8px; color: #16A34A; font-size: 24px; font-weight: bold;">
+                            <div style="margin: 20px 0; padding: 15px; background-color: #697b94; border-radius: 8px; color: #0F172A; font-size: 24px; font-weight: bold;">
                                 ${code}
                             </div>
                             <p style="font-size: 14px; color: #94A3B8;">This code is valid for the next 15 minutes. If you did not attempt to log in, please ignore this email.</p>

@@ -167,9 +167,24 @@ const auth = async (req, res) => {
     }
 }
 
+const logOut = (req, res) => {
+    res.clearCookie('access_token', {
+        httpOnly: true,
+        secure: true,
+        sameSite: 'Lax'
+    });
+    res.clearCookie('refresh_token', {
+        httpOnly: true,
+        secure: true,
+        sameSite: 'Lax'
+    }); // Eliminar las cookies de los tokens de la Sesion
+    res.status(200).json({ message: 'Sesión cerrada exitosamente' });
+}
+
 export const AuthController = {
     signUp,
     signIn,
     verify2FA,
-    auth
+    auth,
+    logOut
 }

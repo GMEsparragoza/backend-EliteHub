@@ -29,4 +29,6 @@ router.post('/verify-2fa', [
 
 router.post('/verify-auth', verifyToken, AuthController.auth)
 
+router.post('/logout', AuthController.logOut)
+
 export default router
